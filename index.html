@@ -9,75 +9,64 @@
         <link
             rel="apple-touch-icon"
             sizes="57x57"
-            href="./assets/favicon/apple-icon-57x57.png"
-        />
+            href="./assets/favicon/apple-icon-57x57.png" />
         <link
             rel="apple-touch-icon"
             sizes="60x60"
-            href="./assets/favicon/apple-icon-60x60.png"
-        />
+            href="./assets/favicon/apple-icon-60x60.png" />
         <link
             rel="apple-touch-icon"
             sizes="72x72"
-            href="./assets/favicon/apple-icon-72x72.png"
-        />
+            href="./assets/favicon/apple-icon-72x72.png" />
         <link
             rel="apple-touch-icon"
             sizes="76x76"
-            href="./assets/favicon/apple-icon-76x76.png"
-        />
+            href="./assets/favicon/apple-icon-76x76.png" />
         <link
             rel="apple-touch-icon"
             sizes="114x114"
-            href="./assets/favicon/apple-icon-114x114.png"
-        />
+            href="./assets/favicon/apple-icon-114x114.png" />
         <link
             rel="apple-touch-icon"
             sizes="120x120"
-            href="./assets/favicon/apple-icon-120x120.png"
-        />
+            href="./assets/favicon/apple-icon-120x120.png" />
         <link
             rel="apple-touch-icon"
             sizes="144x144"
-            href="./assets/favicon/apple-icon-144x144.png"
-        />
+            href="./assets/favicon/apple-icon-144x144.png" />
         <link
             rel="apple-touch-icon"
             sizes="152x152"
-            href="./assets/favicon/apple-icon-152x152.png"
-        />
+            href="./assets/favicon/apple-icon-152x152.png" />
         <link
             rel="apple-touch-icon"
             sizes="180x180"
-            href="./assets/favicon/apple-icon-180x180.png"
-        />
+            href="./assets/favicon/apple-icon-180x180.png" />
         <link
             rel="icon"
             type="image/png"
             sizes="192x192"
-            href="./assets/favicon/android-icon-192x192.png"
-        />
+            href="./assets/favicon/android-icon-192x192.png" />
         <link
             rel="icon"
             type="image/png"
             sizes="32x32"
-            href="./assets/favicon/favicon-32x32.png"
-        />
+            href="./assets/favicon/favicon-32x32.png" />
         <link
             rel="icon"
             type="image/png"
             sizes="96x96"
-            href="./assets/favicon/favicon-96x96.png"
-        />
+            href="./assets/favicon/favicon-96x96.png" />
         <link
             rel="icon"
             type="image/png"
             sizes="16x16"
-            href="./assets/favicon/favicon-16x16.png"
-        />
+            href="./assets/favicon/favicon-16x16.png" />
         <link rel="manifest" href="./assets/favicon/manifest.json" />
         <meta name="msapplication-TileColor" content="#ffffff" />
-        <meta name="msapplication-TileImage" content="./assets/favicon/ms-icon-144x144.png" />
+        <meta
+            name="msapplication-TileImage"
+            content="./assets/favicon/ms-icon-144x144.png" />
         <meta name="theme-color" content="#ffffff" />
 
         <!-- Reset CSS -->
@@ -91,23 +80,46 @@
 
         <!-- Styles -->
         <link rel="stylesheet" href="./assets/css/styles.css" />
+        <link rel="stylesheet" href="./assets/css/responsive.css" />
     </head>
     <body>
+        <!-- PC header -->
         <header class="fixed-header">
             <div class="content">
                 <!-- Navbar -->
                 <nav class="navbar">
+                    <!-- Tablet/mobile menu -->
+                    <label for="menu-checkbox" class="toggle-menu">
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 448 512">
+                            <path
+                                fill="currentColor"
+                                d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z" />
+                        </svg>
+                    </label>
+
                     <!-- Logo -->
                     <a href="#">
-                        <img src="./assets/img/logo.svg" alt="Besnik." />
+                        <img
+                            class="logo"
+                            src="./assets/img/logo.svg"
+                            alt="Besnik." />
                     </a>
+
                     <!-- Navigation -->
-                    <ul>
+                    <ul id="pc-nav">
                         <li><a href="#">Home</a></li>
                         <li><a href="#services">Services</a></li>
                         <li><a href="#features">Features</a></li>
                         <li><a href="#resources">Resources</a></li>
                         <li><a href="#contact">Contact</a></li>
+                        <li class="show-on-mobile separate">
+                            <a href="#!">Sign in</a>
+                        </li>
+                        <li class="show-on-mobile">
+                            <a href="#!">Sign up</a>
+                        </li>
                     </ul>
 
                     <!-- Action -->
@@ -116,6 +128,36 @@
                         <a href="#!" class="btn action-btn">Sign up</a>
                     </div>
                 </nav>
+            </div>
+        </header>
+
+        <!-- Tablet/mobile header -->
+        <header class="mobile-header">
+            <input
+                type="checkbox"
+                name=""
+                id="menu-checkbox"
+                class="menu-checkbox"
+                hidden />
+            <!-- Overlay -->
+            <label for="menu-checkbox" class="menu-overlay"></label>
+
+            <!-- Menu content -->
+            <div class="menu-drawer">
+                <!-- Logo -->
+                <a href="#">
+                    <img src="./assets/img/logo.svg" alt="Besnik." />
+                </a>
+
+                <!-- Navigation -->
+                <ul id="mobile-nav"></ul>
+                <script>
+                    const pcNav = document.querySelector("#pc-nav");
+                    const mobileNav = document.querySelector("#mobile-nav");
+
+                    // Copy from PC nav -> mobile nav
+                    mobileNav.innerHTML = pcNav.innerHTML;
+                </script>
             </div>
         </header>
 
@@ -140,8 +182,7 @@
                     <img
                         src="./assets/img/hero.svg"
                         alt="Discover a place you'll love to live."
-                        class="hero-img"
-                    />
+                        class="hero-img" />
                 </div>
             </div>
 
@@ -171,8 +212,7 @@
                         <a href="#!">
                             <img
                                 src="./assets/img/meundies.svg"
-                                alt="Meundies"
-                            />
+                                alt="Meundies" />
                         </a>
                         <a href="#!">
                             <img src="./assets/img/slack.svg" alt="Slack" />
@@ -183,14 +223,12 @@
                         <a href="#!">
                             <img
                                 src="./assets/img/woocommerce.svg"
-                                alt="Woocommerce"
-                            />
+                                alt="Woocommerce" />
                         </a>
                         <a href="#!">
                             <img
                                 src="./assets/img/sitepoint.svg"
-                                alt="Sitepoint"
-                            />
+                                alt="Sitepoint" />
                         </a>
                     </div>
                 </div>
@@ -211,48 +249,42 @@
                             <img
                                 src="./assets/img/icon.svg"
                                 alt="Buyer Guides"
-                                class="icon"
-                            />
+                                class="icon" />
                             <h3 class="title">Buyer Guides</h3>
                             <a href="#!" class="link">
                                 <span>How to buy</span>
                                 <img
                                     src="./assets/img/arrow-right.svg"
                                     alt="Arrow right"
-                                    class="arrow"
-                                />
+                                    class="arrow" />
                             </a>
                         </li>
                         <li class="guide-item">
                             <img
                                 src="./assets/img/icon-1.svg"
                                 alt="Renter Guides"
-                                class="icon"
-                            />
+                                class="icon" />
                             <h3 class="title">Renter Guides</h3>
                             <a href="#!" class="link">
                                 <span>How to rent</span>
                                 <img
                                     src="./assets/img/arrow-right.svg"
                                     alt="Arrow right"
-                                    class="arrow"
-                                />
+                                    class="arrow" />
                             </a>
                         </li>
                         <li class="guide-item">
                             <img
                                 src="./assets/img/icon-2.svg"
                                 alt="Seller Guides"
-                                class="icon"
-                            />
+                                class="icon" />
                             <h3 class="title">Seller Guides</h3>
                             <a href="#!" class="link">
                                 <span>How to sell</span>
                                 <img
                                     src="./assets/img/arrow-right.svg"
                                     alt="Arrow right"
-                                    class="arrow"
-                                />
+                                    class="arrow" />
                             </a>
                         </li>
                     </ul>
@@ -277,8 +309,7 @@
                                 <img
                                     src="./assets/img/arrow-right.svg"
                                     alt="Arrow right"
-                                    class="arrow"
-                                />
+                                    class="arrow" />
                             </a>
                         </div>
                     </header>
@@ -290,8 +321,7 @@
                                 <img
                                     src="./assets/img/image-1.jpg"
                                     alt="Nikko Apartments"
-                                    class="thumb"
-                                />
+                                    class="thumb" />
                             </a>
                             <div class="body">
                                 <h3 class="title">
@@ -304,22 +334,19 @@
                                     <img
                                         src="./assets/img/beds.svg"
                                         alt=""
-                                        class="icon"
-                                    />
+                                        class="icon" />
                                     <span class="label">5 Beds</span>
 
                                     <img
                                         src="./assets/img/both.svg"
                                         alt=""
-                                        class="icon"
-                                    />
+                                        class="icon" />
                                     <span class="label">2 both</span>
 
                                     <img
                                         src="./assets/img/sqft.svg"
                                         alt=""
-                                        class="icon"
-                                    />
+                                        class="icon" />
                                     <span class="label">2000 Sqft</span>
                                 </div>
                             </div>
@@ -346,22 +373,19 @@
                                     <img
                                         src="./assets/img/beds.svg"
                                         alt=""
-                                        class="icon"
-                                    />
+                                        class="icon" />
                                     <span class="label">5 Beds</span>
 
                                     <img
                                         src="./assets/img/both.svg"
                                         alt=""
-                                        class="icon"
-                                    />
+                                        class="icon" />
                                     <span class="label">2 both</span>
 
                                     <img
                                         src="./assets/img/sqft.svg"
                                         alt=""
-                                        class="icon"
-                                    />
+                                        class="icon" />
                                     <span class="label">2000 Sqft</span>
                                 </div>
                             </div>
@@ -373,8 +397,7 @@
                                 <img
                                     src="./assets/img/image-3.jpg"
                                     alt="Lavis 18 Residence"
-                                    class="thumb"
-                                />
+                                    class="thumb" />
                             </a>
                             <div class="body">
                                 <h3 class="title">
@@ -387,22 +410,19 @@
                                     <img
                                         src="./assets/img/beds.svg"
                                         alt=""
-                                        class="icon"
-                                    />
+                                        class="icon" />
                                     <span class="label">5 Beds</span>
 
                                     <img
                                         src="./assets/img/both.svg"
                                         alt=""
-                                        class="icon"
-                                    />
+                                        class="icon" />
                                     <span class="label">2 both</span>
 
                                     <img
                                         src="./assets/img/sqft.svg"
                                         alt=""
-                                        class="icon"
-                                    />
+                                        class="icon" />
                                     <span class="label">2000 Sqft</span>
                                 </div>
                             </div>
@@ -419,8 +439,7 @@
                             <img
                                 src="./assets/img/stats-img.jpg"
                                 alt="You’ve found a neighborhood you love."
-                                class="image"
-                            />
+                                class="image" />
 
                             <!-- Trend -->
                             <div class="stats-trend">
@@ -429,8 +448,7 @@
                                     <img
                                         src="./assets/img/arrow-trend-up.svg"
                                         alt=""
-                                        class="icon"
-                                    />
+                                        class="icon" />
                                 </div>
                                 <p class="desc">
                                     By avarage for 2 bedroom apments in San
@@ -442,53 +460,44 @@
                                         <img
                                             src="./assets/img/avatar-8.jpg"
                                             alt=""
-                                            class="avatar"
-                                        />
+                                            class="avatar" />
                                         <img
                                             src="./assets/img/avatar-11.jpg"
                                             alt=""
-                                            class="avatar"
-                                        />
+                                            class="avatar" />
                                     </div>
                                     <div class="avatar-group">
                                         <img
                                             src="./assets/img/avatar-3.jpg"
                                             alt=""
-                                            class="avatar"
-                                        />
+                                            class="avatar" />
                                         <img
                                             src="./assets/img/avatar-7.jpg"
                                             alt=""
-                                            class="avatar"
-                                        />
+                                            class="avatar" />
                                         <img
                                             src="./assets/img/avatar-9.jpg"
                                             alt=""
-                                            class="avatar"
-                                        />
+                                            class="avatar" />
                                         <div
                                             class="avatar"
-                                            style="--bg-color: #1f3bb1"
-                                        >
+                                            style="--bg-color: #1f3bb1">
                                             <span>R</span>
                                         </div>
                                     </div>
                                     <div class="avatar-group">
                                         <div
                                             class="avatar"
-                                            style="--bg-color: #24d6d9"
-                                        >
+                                            style="--bg-color: #24d6d9">
                                             <span>FJ</span>
                                         </div>
                                         <img
                                             src="./assets/img/avatar-6.jpg"
                                             alt=""
-                                            class="avatar"
-                                        />
+                                            class="avatar" />
                                         <div
                                             class="avatar"
-                                            style="--bg-color: #f8c120"
-                                        >
+                                            style="--bg-color: #f8c120">
                                             <span>T</span>
                                         </div>
                                     </div>
@@ -496,22 +505,18 @@
                                         <img
                                             src="./assets/img/avatar-9.jpg"
                                             alt=""
-                                            class="avatar"
-                                        />
+                                            class="avatar" />
                                         <img
                                             src="./assets/img/avatar-12.jpg"
                                             alt=""
-                                            class="avatar"
-                                        />
+                                            class="avatar" />
                                         <img
                                             src="./assets/img/avatar-7.jpg"
                                             alt=""
-                                            class="avatar"
-                                        />
+                                            class="avatar" />
                                         <div
                                             class="avatar"
-                                            style="--bg-color: #f97f6b"
-                                        >
+                                            style="--bg-color: #f97f6b">
                                             <span>JJ</span>
                                         </div>
                                     </div>
@@ -519,12 +524,10 @@
                                         <img
                                             src="./assets/img/avatar-10.jpg"
                                             alt=""
-                                            class="avatar"
-                                        />
+                                            class="avatar" />
                                         <div
                                             class="avatar"
-                                            style="--bg-color: #73a242"
-                                        >
+                                            style="--bg-color: #73a242">
                                             <span>QV</span>
                                         </div>
                                     </div>
@@ -532,24 +535,20 @@
                                         <img
                                             src="./assets/img/avatar-3.jpg"
                                             alt=""
-                                            class="avatar"
-                                        />
+                                            class="avatar" />
                                         <img
                                             src="./assets/img/avatar-13.jpg"
                                             alt=""
-                                            class="avatar"
-                                        />
+                                            class="avatar" />
                                     </div>
                                     <div class="avatar-group">
                                         <img
                                             src="./assets/img/avatar-11.jpg"
                                             alt=""
-                                            class="avatar"
-                                        />
+                                            class="avatar" />
                                         <div
                                             class="avatar"
-                                            style="--bg-color: #1f3bb0"
-                                        >
+                                            style="--bg-color: #1f3bb0">
                                             <span>IU</span>
                                         </div>
                                     </div>
@@ -602,8 +601,7 @@
                         <img
                             src="./assets/img/newletter.svg"
                             alt="Subscribe to our Newsletter!"
-                            class="image"
-                        />
+                            class="image" />
                     </div>
                 </div>
             </div>
@@ -679,20 +677,17 @@
                             <a href="#!" class="social-link">
                                 <img
                                     src="./assets/img/facebook.svg"
-                                    alt="facebook"
-                                />
+                                    alt="facebook" />
                             </a>
                             <a href="#!" class="social-link">
                                 <img
                                     src="./assets/img/twitter.svg"
-                                    alt="twitter"
-                                />
+                                    alt="twitter" />
                             </a>
                             <a href="#!" class="social-link">
                                 <img
                                     src="./assets/img/linkedin.svg"
-                                    alt="linkedin"
-                                />
+                                    alt="linkedin" />
                             </a>
                         </div>
                     </div>
@@ -702,8 +697,7 @@
                     <img
                         src="./assets/img/logo.svg"
                         alt="Besnik."
-                        class="logo"
-                    />
+                        class="logo" />
                     <p class="copyright">
                         Copyright 2020.com, All rights reserved.
                     </p>
